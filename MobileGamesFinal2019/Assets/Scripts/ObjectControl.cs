@@ -15,4 +15,11 @@ public class CubeControls : MonoBehaviour
     {
         
     }
+
+    // Move object up
+    internal void moveUp()
+    {
+        transform.position += Vector3.up;
+    }
+
 }
