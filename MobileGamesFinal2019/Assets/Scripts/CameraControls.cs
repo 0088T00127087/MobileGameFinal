@@ -4,68 +4,71 @@ using UnityEngine;
 
 public class CameraControls : MonoBehaviour
 {
+
+
+    private Touch firstTouch = new Touch();
+    public Camera myCamera;
+
+    private float rotateCameraX = 0f;
+    private float rotateCameraY = 0f;
+
+    private Vector3 origCamerPos;
+
+
+    public float rotateSpeed = 0.001f;
+    public float direction = -1;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        origCamerPos = myCamera.transform.eulerAngles;
+        rotateCameraX = origCamerPos.x;
+        rotateCameraY = origCamerPos.y;
     }
 
-    //Start point
-    private Vector2 worldStartPoint;
+
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.touchCount > 0)
+        if(Input.touchCount == 2)
         {
-            Vector2 screenPositionOfTouch = Input.touches[0].position;
-            Ray laser = Camera.main.ScreenPointToRay(screenPositionOfTouch);
-            Debug.DrawRay(laser.origin, 100 * laser.direction);
-            RaycastHit info;
-            // if (Physics.Raycast(laser, out info))
-            // {
 
-            //     info.collider.GetComponent<>().moveUp;
-            //  }
-
-
-            // Phases for camera Movement
-            if (Input.touchCount == 1)
+            foreach (Touch touch in Input.touches)
             {
-                Touch currentTouch = Input.GetTouch(0);
-
-                if (currentTouch.phase == TouchPhase.Began)
+                if (touch.phase == TouchPhase.Began)
                 {
-                    //this.worldStartPoint = this.getWorldPoint(currentTouch.position);
+                    firstTouch = touch;
+                }
+                else if (touch.phase == TouchPhase.Moved)
+                {
+                    //Calculate the position to move to
+                    float deltaX = firstTouch.position.x - touch.position.x;
+                    float deltaY = firstTouch.position.y - touch.position.y;
 
-                    // setting world start point to position of camera
-                    this.worldStartPoint = Camera.main.gameObject.transform.position;
+                    rotateCameraX -= deltaY * Time.deltaTime * rotateSpeed * direction;
+                    rotateCameraY += deltaX * Time.deltaTime * rotateSpeed * direction;
+
+                    rotateCameraX = Mathf.Clamp(rotateCameraX, -0f, 60f);
+                    rotateCameraY = Mathf.Clamp(rotateCameraY, -60f, 60f);
+
+                    myCamera.transform.eulerAngles = new Vector3(rotateCameraX, rotateCameraY, 0f);
+
+                }
+                else if (touch.phase == TouchPhase.Ended)
+                {
+                    firstTouch = new Touch();
                 }
 
-                if (currentTouch.phase == TouchPhase.Moved)
-                {
-                    Vector2 worldDelta = this.getWorldPoint(currentTouch.position) - this.worldStartPoint;
-
-                    Camera.main.transform.Translate(
-                        -worldDelta.x,
-                        0,
-                        0
-                    );
-                }
             }
+        }
 
-           
-
-
-
-
-
+        if(Input.touchCount > 1 && Input.touchCount < 3)
+        {
 
         }
 
-
     }
-
-  
 
 }
