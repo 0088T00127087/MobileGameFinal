@@ -18,6 +18,7 @@ public class CameraControls : MonoBehaviour
     public float rotateSpeed = 0.001f;
     public float direction = -1;
 
+    GameObject go = null;
 
     // Start is called before the first frame update
     void Start()

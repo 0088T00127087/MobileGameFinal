@@ -24,6 +24,9 @@ public class TouchControl : MonoBehaviour
             Touch input = Input.GetTouch(0);
             positionOfObject = input.position;
             print(positionOfObject);
+
+
+
         }
 
         
