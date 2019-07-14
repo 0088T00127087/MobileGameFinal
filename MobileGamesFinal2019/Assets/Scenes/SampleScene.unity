@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 517854941}
   - component: {fileID: 517854940}
   - component: {fileID: 517854939}
+  - component: {fileID: 517854944}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -289,6 +290,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &517854944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517854938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f68762971f76bc4983df5a8e4679b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,7 +503,6 @@ GameObject:
   - component: {fileID: 1033545475}
   - component: {fileID: 1033545474}
   - component: {fileID: 1033545473}
-  - component: {fileID: 1033545477}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -571,18 +583,6 @@ Transform:
   m_Father: {fileID: 4485490909654513919}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1033545477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1033545472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d7eb0d88591911418aa042eae5b2acb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1276863090
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,19 +947,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1051896192883274958
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8129184429084368416}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &4485490909654513919
 Transform:
   m_ObjectHideFlags: 0
@@ -988,7 +975,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4485490909654513919}
-  - component: {fileID: 1051896192883274958}
   - component: {fileID: 8129184429084368417}
   m_Layer: 0
   m_Name: LevelOne

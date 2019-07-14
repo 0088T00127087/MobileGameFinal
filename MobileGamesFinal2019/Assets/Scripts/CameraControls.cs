@@ -14,7 +14,7 @@ public class CameraControls : MonoBehaviour
 
     private Vector3 origCamerPos;
 
-
+   
     public float rotateSpeed = 0.001f;
     public float direction = -1;
 
@@ -30,7 +30,7 @@ public class CameraControls : MonoBehaviour
 
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if(Input.touchCount == 2)
         {
@@ -64,8 +64,17 @@ public class CameraControls : MonoBehaviour
             }
         }
 
-        if(Input.touchCount > 1 && Input.touchCount < 3)
+        if(Input.touchCount == 1)
         {
+            Vector2 screenPositionOfTouch = Input.touches[0].position;
+            Ray laser = Camera.main.ScreenPointToRay(screenPositionOfTouch);
+            Debug.DrawRay(laser.origin, 100 * laser.direction);
+            RaycastHit info;
+            if (Physics.Raycast(laser, out info))
+            {
+
+                //info.collider.GetComponent<SphereControl>().Bounce();
+            }
 
         }
 

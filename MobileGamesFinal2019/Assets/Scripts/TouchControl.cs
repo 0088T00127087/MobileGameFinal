@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeControls : MonoBehaviour
+public class TouchControl : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,11 +15,4 @@ public class CubeControls : MonoBehaviour
     {
         
     }
-
-    // Move object up
-    internal void moveUp()
-    {
-        transform.position += Vector3.up;
-    }
-
 }
