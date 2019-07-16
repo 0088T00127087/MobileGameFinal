@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class TouchManager : MonoBehaviour
 {
+    // this will be used for catching the sphere
+    GameObject heldObject = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +27,10 @@ public class TouchManager : MonoBehaviour
             //Test to get if touch is greater than zero
             //print("Touch count is greater than zero");
             // Call the Destroy Method
-            Destroy();
+            //Destroy();
+            
+
+
         }
 
         if(Input.touchCount == 2)
@@ -52,6 +58,15 @@ public class TouchManager : MonoBehaviour
             Destroy(info.transform.gameObject);
         }
 
+    }
+
+     Ray MyLazerPointer()
+    {
+        Vector2 screenPositionOfTouch = Input.touches[0].position;
+        Ray laser = Camera.main.ScreenPointToRay(screenPositionOfTouch);
+        
+        Ray mylazer = new Ray(laser.origin, 100 * laser.direction);
+        return mylazer;
     }
    
 
