@@ -23,8 +23,18 @@ public class TouchManager : MonoBehaviour
             print("No touches detected");
 
 
-        // To hit the spere
-        
+        // To hit the spere and destroy it
+        Vector2 screenPositionOfTouch = Input.touches[0].position;
+        Ray laser = Camera.main.ScreenPointToRay(screenPositionOfTouch);
+        Debug.DrawRay(laser.origin, 100 * laser.direction);
+        RaycastHit info;
+        if (Physics.Raycast(laser, out info))
+        {
+
+            Destroy(info.transform.gameObject);
+
+        }
+
 
 
 
