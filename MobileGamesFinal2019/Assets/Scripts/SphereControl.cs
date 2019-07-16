@@ -26,7 +26,7 @@ public class SphereControl : MonoBehaviour
             {
 
                 print("touched ball");
-                Bounce();
+                //Bounce();
             
             }
         }
