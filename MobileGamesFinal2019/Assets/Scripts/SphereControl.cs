@@ -5,7 +5,7 @@ using UnityEngine;
 public class SphereControl : MonoBehaviour
 {
 
-    GameObject sphere;
+    //GameObject sphere;
    
     // Start is called before the first frame update
     void Start()
