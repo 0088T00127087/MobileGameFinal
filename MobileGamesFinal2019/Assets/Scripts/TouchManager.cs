@@ -7,6 +7,9 @@ public class TouchManager : MonoBehaviour
     // this will be used for catching the sphere
     GameObject heldObject = null;
 
+    // This is to get the single touch to move the a ball object
+    private Touch firstTouch = new Touch();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +25,63 @@ public class TouchManager : MonoBehaviour
             print("No touches detected");
             
         }
+
+        // Using the phases of a touch begin
         if(Input.touchCount == 1)
         {
             //Test to get if touch is greater than zero
             //print("Touch count is greater than zero");
             // Call the Destroy Method
             //Destroy();
-            
+
+
+            Ray oneTouchLazor = MyLazerPointer();
+            RaycastHit info;
+
+            //if(Physics.Raycast(oneTouchLazor.origin, oneTouchLazor.direction, out info))
+            //{
+            //    heldObject = info.transform.gameObject;
+            //}
+            //else if(Input.touchCount ==1  && heldObject)
+            //{
+            //    Vector3 positionObjectMovedTo = Camera.main.ScreenToWorldPoint(Input.touches[0].position);
+            //    heldObject.transform.position = new Vector3(positionObjectMovedTo.x, positionObjectMovedTo.y, heldObject.transform.position.z);
+            //}
+            //else if(Input.touchCount == 0 && heldObject)
+            //{
+            //    heldObject = null;
+            //}
+
+            /*
+             * To grap a ball with touch*/
+             if(Input.touchCount == 1)
+            {
+                foreach (Touch touch in Input.touches)
+                {
+                    if (touch.phase == TouchPhase.Began)
+                    {
+
+                    }
+                    else if(touch.phase == TouchPhase.Moved)
+                    {
+
+                    }
+                    else if (touch.phase == TouchPhase.Ended)
+                    {
+                        
+                    }
+                }
+
+            }
+           
+
+
+
+
+
+
+
+
 
 
         }

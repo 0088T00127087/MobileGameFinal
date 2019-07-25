@@ -25,7 +25,7 @@ public class SphereControl : MonoBehaviour
             if (Physics.Raycast(laser, out info))
             {
 
-                print("touched ball");
+                print("touched ball" + info.ToString());
                 //Bounce();
             
             }
